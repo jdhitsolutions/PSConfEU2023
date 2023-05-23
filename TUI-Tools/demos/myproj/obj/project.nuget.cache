@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "0x+V6vOqRFS8FBEF1FD90onl9RSMR5ve4h/V54wsm5AkuwEfA1z+G6bjbRj5wNV3P2pLW2YLFv5i1qHUcRp2pQ==",
+  "success": true,
+  "projectFilePath": "C:\\presentations\\PSConfEU2023\\TUI-Tools\\demos\\myproj\\myproj.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jeff\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
+    "C:\\Users\\Jeff\\.nuget\\packages\\nstack.core\\1.0.7\\nstack.core.1.0.7.nupkg.sha512",
+    "C:\\Users\\Jeff\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\Jeff\\.nuget\\packages\\system.management\\7.0.1\\system.management.7.0.1.nupkg.sha512",
+    "C:\\Users\\Jeff\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\Jeff\\.nuget\\packages\\terminal.gui\\1.11.2\\terminal.gui.1.11.2.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Objects>
+<Object Type="Terminal.Gui.ColorScheme">
+  <Property Name="Normal" Type="Terminal.Gui.Attribute">
+    <Property Name="Value" Type="System.Int32">31</Property>
+    <Property Name="Foreground" Type="Terminal.Gui.Color">White</Property>
+    <Property Name="Background" Type="Terminal.Gui.Color">Blue</Property>
+    <Property Name="Initialized" Type="System.Boolean">True</Property>
+    <Property Name="HasValidColors" Type="System.Boolean">True</Property>
+  </Property>
+  <Property Name="Focus" Type="Terminal.Gui.Attribute">
+    <Property Name="Value" Type="System.Int32">112</Property>
+    <Property Name="Foreground" Type="Terminal.Gui.Color">Black</Property>
+    <Property Name="Background" Type="Terminal.Gui.Color">Gray</Property>
+    <Property Name="Initialized" Type="System.Boolean">True</Property>
+    <Property Name="HasValidColors" Type="System.Boolean">True</Property>
+  </Property>
+  <Property Name="HotNormal" Type="Terminal.Gui.Attribute">
+    <Property Name="Value" Type="System.Int32">27</Property>
+    <Property Name="Foreground" Type="Terminal.Gui.Color">BrightCyan</Property>
+    <Property Name="Background" Type="Terminal.Gui.Color">Blue</Property>
+    <Property Name="Initialized" Type="System.Boolean">True</Property>
+    <Property Name="HasValidColors" Type="System.Boolean">True</Property>
+  </Property>
+  <Property Name="HotFocus" Type="Terminal.Gui.Attribute">
+    <Property Name="Value" Type="System.Int32">121</Property>
+    <Property Name="Foreground" Type="Terminal.Gui.Color">BrightBlue</Property>
+    <Property Name="Background" Type="Terminal.Gui.Color">Gray</Property>
+    <Property Name="Initialized" Type="System.Boolean">True</Property>
+    <Property Name="HasValidColors" Type="System.Boolean">True</Property>
+  </Property>
+  <Property Name="Disabled" Type="Terminal.Gui.Attribute">
+    <Property Name="Value" Type="System.Int32">24</Property>
+    <Property Name="Foreground" Type="Terminal.Gui.Color">DarkGray</Property>
+    <Property Name="Background" Type="Terminal.Gui.Color">Blue</Property>
+    <Property Name="Initialized" Type="System.Boolean">True</Property>
+    <Property Name="HasValidColors" Type="System.Boolean">True</Property>
+  </Property>
+</Object>
+</Objects>
