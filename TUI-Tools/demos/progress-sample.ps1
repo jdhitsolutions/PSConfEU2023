@@ -2,9 +2,9 @@
 
 #this needs a later version of Terminal.Gui - see Get-TerminalGUI.ps1
 
-#https://migueldeicaza.github.io/gui.cs/api/Terminal.Gui/Terminal.Gui.ProgressBar.html
+#https://gui-cs.github.io/Terminal.Gui/api/Terminal.Gui/Terminal.Gui.ProgressBar.html
 
-$scriptVer = '0.3.0'
+$scriptVer = '0.4.0'
 $dlls = "$PSScriptRoot\assemblies\NStack.dll", "$PSScriptRoot\assemblies\Terminal.Gui.dll"
 ForEach ($item in $dlls) {
     Try {
@@ -24,7 +24,7 @@ ForEach ($item in $dlls) {
 #[Terminal.Gui.key]'q' -bor [Terminal.Gui.Key]::CtrlMask
 
 $window = [Terminal.Gui.window]::new()
-$window.title = 'Progress Demo [$([terminal.gui.application]::QuitKey)]'
+$window.title = "Progress Bar Demo"
 
 $statusbar = [Terminal.Gui.StatusBar]::new(
     @(
@@ -43,10 +43,17 @@ $cs.Normal = $n
 $label.ColorScheme = $cs
 $window.add($label)
 
+$labelC = [Terminal.Gui.Label]::New()
+$labelC.Text = "C:"
+$labelC.x = 2
+$labelC.y =2
+
+$window.Add($labelC)
+
 $rec = [Terminal.Gui.Rect]::new(1, 5, 50, 5)
 $p = [Terminal.Gui.ProgressBar]::new($rec)
-$p.text = 'Drive'
-$p.x = 2
+$p.Text = "free space"
+$p.x = 5
 $p.y = 2
 $p.width = [Terminal.Gui.dim]::Fill() - 10
 $p.Height = 2
@@ -56,24 +63,47 @@ $p.ProgressBarFormat = 'Simple'
 
 #Blocks, Continuous, MarqueeBlocks, MarqueeContinuous""
 $p.ProgressBarStyle = 'continuous'
-
+$global:pp = $p
 $window.Add($p)
+
+#add radio buttons to test progress bar formats
+$RadioGroup = [Terminal.Gui.RadioGroup]::New(60, 2, @('Simple', 'SimplePlusPercentage', 'Framed','FramedPlusPercentage','FramedProgressPadded'), 0)
+$RadioGroup.DisplayMode = 'Vertical'
+
+$radioGroup.Add_SelectedItemChanged({
+    Switch ($radioGroup.SelectedItem) {
+        0 { $p.ProgressBarFormat = "Simple" }
+        1 { $p.ProgressBarFormat = "SimplePlusPercentage"  }
+        2 { $p.ProgressBarFormat = "Framed"  }
+        3 { $p.ProgressBarFormat = "FramedPlusPercentage"  }
+        4 { $p.ProgressBarFormat = "FramedProgressPadded"  }
+    }
+})
+$Window.Add($RadioGroup)
 
 #in a frame
 $frame = [Terminal.Gui.FrameView]::new('Drive C')
-$frame.x = 2
-$frame.y = [Terminal.Gui.pos]::Bottom($p)
+$frame.x = 3
+$frame.y = [Terminal.Gui.pos]::Bottom($p)+3
 $frame.width = 50
 $frame.Height = 4
 #
 #$frame.AutoSize = $True
 
+#change the color scheme
+
+$cs = [Terminal.Gui.ColorScheme]::new()
+$n = [Terminal.Gui.Attribute]::new('Red', 'Green')
+$cs.Normal = $n
+
+
 $p2 = [Terminal.Gui.ProgressBar]::new()
 $p2.width = [Terminal.Gui.dim]::Fill()
 $p2.Height = 2
-$p2.fraction = .44
+$p2.fraction = .56
 $p2.ProgressBarFormat = 'SimplePlusPercentage'
 $p2.progressBarStyle = 'continuous'
+$p2.ColorScheme = $cs
 $frame.add($p2)
 $window.add($frame)
 
