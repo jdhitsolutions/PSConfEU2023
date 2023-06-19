@@ -6,7 +6,7 @@ return "This is a demo script file."
 #the version with Out-ConsoleGridView is outdated
 # Install-Module Microsoft.PowerShell.ConsoleGuiTools
 
-Get-Process | Select ID,Name,WS,StartTime | Out-ConsoleGridView
+Get-Process | Select-Object ID,Name,WS,StartTime | Out-ConsoleGridView
 
 psedit .\Get-Requirements.ps1
 
@@ -24,17 +24,22 @@ psedit .\sample-tui.ps1
 
 #endregion
 #region elements
+
 psedit .\frames.ps1
 psedit .\lists.ps1
 psedit .\menus.ps1
 psedit .\progress-sample.ps1
 psedit .\filedialog.ps1
+
 #endregion
+
+#region complete examples
+
+psedit .\tui-credential.ps1
 psedit .\ServiceInfo.ps1
 
-#region complete demo
-
 #endregion
+
 #region TerminalGuiDesigner
 
 https://blog.ironmansoftware.com/tui-powershell/
@@ -42,7 +47,7 @@ https://blog.ironmansoftware.com/tui-powershell/
 # Install-Module TerminalGuiDesigner -Force -Scope AllUsers
 #there may be dll conflicts
 import-Module TerminalGuiDesigner -force
-#init to work around a bug
+#init to work around a bug related to dragging and moving controls
 [Terminal.Gui.Application]::Init()
 Show-TuiDesigner
 #endregion
