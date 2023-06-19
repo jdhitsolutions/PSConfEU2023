@@ -19,12 +19,12 @@ ForEach ($item in $dlls) {
 [Terminal.Gui.Application]::QuitKey = 27
 $Script:New = $False
 
-$win = $win = [Terminal.Gui.Window] @{
+$win = [Terminal.Gui.Window] @{
     Title  = 'Get-TuiCredential'
     Width  = 45
     Height = 9
     X      = [Terminal.Gui.Pos]::Center()
-    Y = [Terminal.Gui.Pos]::Center()
+    Y      = [Terminal.Gui.Pos]::Center()
 }
 
 $lblUsername = [Terminal.Gui.Label] @{
@@ -39,7 +39,7 @@ $txtUserName = [Terminal.Gui.TextField]@{
     X        = 10
     Y        = 1
     TabIndex = 0
-    Text = $Username
+    Text     = $Username
 }
 $win.Add($txtUserName)
 
@@ -74,7 +74,7 @@ $win.Add($btnNew)
 
 $btnCancel = [Terminal.Gui.Button]@{
     Text     = '_Cancel'
-    X        = $btnNew.X+9
+    X        = $btnNew.X + 9
     Y        = 5
     TabIndex = 3
 }
@@ -87,7 +87,7 @@ $win.Add($btnCancel)
 
 $btnShow = [Terminal.Gui.Button]@{
     Text     = '_Show'
-    X        = $btnCancel.X+12
+    X        = $btnCancel.X + 12
     Y        = 5
     TabIndex = 4
 }

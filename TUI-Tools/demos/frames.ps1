@@ -1,6 +1,7 @@
 # "Repurposed" from Andrew Pla
 
 using namespace Terminal.Gui
+
 $dlls = "$PSScriptRoot\assemblies\NStack.dll", "$PSScriptRoot\assemblies\Terminal.Gui.dll"
 ForEach ($item in $dlls) {
     Try {
@@ -15,12 +16,12 @@ ForEach ($item in $dlls) {
 }
 
 [Application]::Init()
-[Terminal.Gui.Application]::QuitKey = 27
+[Application]::QuitKey = 27
 #[Terminal.Gui.Key]::Esc
 
 # Create a window to add frames to
 $Window = [Window]::new()
-$Window.Title = "Window Title ($([Terminal.Gui.Application]::QuitKey))"
+$Window.Title = "Window Title ($([Application]::QuitKey))"
 
 $Frame1 = [FrameView]::new()
 $Frame1.Width = [Dim]::Percent(50)

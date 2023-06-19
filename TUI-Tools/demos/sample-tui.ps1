@@ -1,4 +1,4 @@
-#requires -version 7.2
+#requires -version 7.3
 
 If ($host.name -ne 'ConsoleHost') {
   Write-Warning "This must be run in a console host."

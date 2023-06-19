@@ -1,4 +1,4 @@
-#requires -version 7.2
+#requires -version 7.3
 
 #this needs a later version of Terminal.Gui - see Get-TerminalGUI.ps1
 
