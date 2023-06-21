@@ -4,10 +4,9 @@ return "This is a demo script file."
 # Wildcard only
 
 Get-Process -IncludeUserName | Where-Object Username -like *jeff*
-Get-Process -IncludeUserName | Where-Object Username -notlike *jeff*
+Get-Process -IncludeUserName | Where-Object Username -NotLike *jeff*
 
 #endregion
-
 #region regex basics
 help about_Regular_Expressions
 <#
@@ -65,7 +64,7 @@ Get-Process -IncludeUserName | Where-Object Username -match "\\System$"
 
 #-NotMatch
 Get-Process -IncludeUserName |
-Where-Object {$null -ne $_.Username -AND $_.Username-NotMatch "^NT\s\w+\\"}
+Where-Object {$null -ne $_.Username -AND $_.Username -notMatch "^NT\s\w+\\"}
 
 #endregion
 #region Replace
@@ -145,7 +144,8 @@ $old | Group-Object {$_.matches.value} -NoElement
 #ov is an alias for the common OutVariable parameter
 # (\.\d)? match an optional pattern
 Get-ChildItem c:\scripts\*.ps1 -ov f |
-Select-String 'requires -version \d(\.\d)?' -ov r | Group-Object {$_.matches.value} -NoElement -ov g
+Select-String 'requires -version \d(\.\d)?' -ov r |
+Group-Object {$_.matches.value} -NoElement -ov g
 #handle casing
 $f | Select-String 'requires -version \d(\.\d)?' -ov r |
 Group-Object {$_.matches.value.ToLower()} -NoElement -ov g

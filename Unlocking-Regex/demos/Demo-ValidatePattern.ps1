@@ -16,10 +16,10 @@ Function Get-ShareData {
     )
 
     Begin {
-        Write-Verbose "[$((Get-Date).TimeofDay) BEGIN  ] Starting $($myinvocation.mycommand)"
+        Write-Verbose "[$((Get-Date).TimeOfDay) BEGIN  ] Starting $($MyInvocation.MyCommand)"
     } #begin
     Process {
-        Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Processing $path"
+        Write-Verbose "[$((Get-Date).TimeOfDay) PROCESS] Processing $path"
         Write-Host "Getting top level folder size for $Path" -ForegroundColor Magenta
         # commented out for demonstration purposes
         # Get-ChildItem $path | Measure-Object -Property Length -Sum |
@@ -27,6 +27,6 @@ Function Get-ShareData {
         # Count,Sum
     } #process
     End {
-        Write-Verbose "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
+        Write-Verbose "[$((Get-Date).TimeOfDay) END    ] Ending $($MyInvocation.MyCommand)"
     } #end
 }
