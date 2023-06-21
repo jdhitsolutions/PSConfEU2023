@@ -5,12 +5,12 @@ $global:Redacted = @{
 Prospero = "REDACTED"
 "Thinkx1-jh" = "REDACTED"
 "Jeff Hicks" = "Roy Biv"
-Jeff = "Roy" 
+Jeff = "Roy"
 }
 
 Function Out-Redacted {
     [cmdletbinding()]
-    [outputtype("System.string")]
+    [OutputType("System.string")]
     [alias("or")]
     Param(
         [Parameter(ValueFromPipeline)]
@@ -20,23 +20,23 @@ Function Out-Redacted {
         [hashtable]$Redacted = $global:Redacted
     )
     Begin {
-        Write-Verbose "[$((Get-Date).TimeofDay) BEGIN  ] Starting $($myinvocation.mycommand)"
+        Write-Verbose "[$((Get-Date).TimeOfDay) BEGIN  ] Starting $($MyInvocation.MyCommand)"
         #initialize a list to hold the incoming objects
-        Write-Verbose "[$((Get-Date).TimeofDay) BEGIN  ] Initializing a list"
+        Write-Verbose "[$((Get-Date).TimeOfDay) BEGIN  ] Initializing a list"
         $in = [System.Collections.Generic.list[object]]::new()
     } #begin
 
     Process {
-        Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] $InputObject"
+        Write-Verbose "[$((Get-Date).TimeOfDay) PROCESS] $InputObject"
         #add each pipelined object to the list
-        $in.Add($inputobject)
+        $in.Add($InputObject)
     } #process
 
     End {
         #take the data in $in and create an array of strings
         $out = ($in | Out-String).Split("`n")
         Write-Verbose "Processing $($out.count) lines"
-        foreach ($item in $redacted.getenumerator()) {
+        foreach ($item in $redacted.GetEnumerator()) {
             [regex]$r = "(\b)?$($item.key)(\S+)?(\b)?"
             $fixme = [System.Text.RegularExpressions.Regex]::Matches($out,$r,"IgnoreCase")
             foreach ($fix in $fixme) {
@@ -51,7 +51,7 @@ Function Out-Redacted {
         #write the string result
         $out
 
-        Write-Verbose "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
+        Write-Verbose "[$((Get-Date).TimeOfDay) END    ] Ending $($MyInvocation.MyCommand)"
     } #end
 
 } #close Out-Redacted
